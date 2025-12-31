@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mori – Quiet Focus Space</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      overflow: hidden;
+    }
+
+    #app {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      transition: background 1s ease;
+    }
+
+    /* Theme toggle button */
+    .theme-toggle {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      background: transparent;
+      border: 2px solid rgba(255, 179, 201, 0.25);
+      border-radius: 50%;
+      width: 3rem;
+      height: 3rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.6;
+      font-size: 1.2rem;
+      z-index: 100;
+    }
+
+    .theme-toggle:hover {
+      opacity: 1;
+    }
+
+    /* Floating petals/leaves */
+    .petal {
+      position: absolute;
+      width: 2rem;
+      height: 2rem;
+      background: rgba(255, 179, 201, 0.2);
+      border-radius: 50% 0 50% 50%;
+      opacity: 0.3;
+      transform: rotate(45deg);
+      pointer-events: none;
+    }
+
+    .petal.green {
+      border-radius: 50%;
+    }
+
+    /* Central container */
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3rem;
+      z-index: 10;
+    }
+
+    /* App title */
+    h1 {
+      font-size: 1.5rem;
+      font-weight: 300;
+      letter-spacing: 0.3em;
+      opacity: 0.7;
+      color: #4A4745;
+    }
+
+    /* Orb container */
+    .orb-container {
+      position: relative;
+      width: 20rem;
+      height: 20rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Outer glow */
+    .orb-glow {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      opacity: 0.6;
+      transition: opacity 0.5s;
+    }
+
+    .orb-glow.active {
+      animation: breathe 4s ease-in-out infinite;
+    }
+
+    /* Progress ring */
+    .orb-progress {
+      position: absolute;
+      width: 85%;
+      height: 85%;
+      border-radius: 50%;
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+
+    .orb-progress.active {
+      opacity: 0.4;
+    }
+
+    /* Core orb */
+    .orb-core {
+      width: 70%;
+      height: 70%;
+      border-radius: 50%;
+      opacity: 0.85;
+      transition: all 0.5s ease;
+    }
+
+    .orb-core.active {
+      animation: pulse 4s ease-in-out infinite;
+    }
+
+    .orb-core.complete {
+      transform: scale(1.3);
+      opacity: 1;
+    }
+
+    /* Bloom effect */
+    .bloom {
+      position: absolute;
+      width: 150%;
+      height: 150%;
+      border-radius: 50%;
+      animation: bloom 3s ease-out forwards;
+      pointer-events: none;
+    }
+
+    /* Controls */
+    .controls {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    /* Time adjustment */
+    .time-adjust {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      opacity: 0.8;
+    }
+
+    .time-btn {
+      background: transparent;
+      border: none;
+      color: #4A4745;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: opacity 0.3s;
+    }
+
+    .time-btn:disabled {
+      cursor: not-allowed;
+      opacity: 0.3;
+    }
+
+    .time-display {
+      font-size: 1rem;
+      color: #4A4745;
+      font-weight: 300;
+      min-width: 8rem;
+      text-align: center;
+      letter-spacing: 0.1em;
+    }
+
+    /* Main action button */
+    .action-btn {
+      border: none;
+      border-radius: 3rem;
+      padding: 1rem 3rem;
+      color: #4A4745;
+      font-size: 1rem;
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .action-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    /* Reset button */
+    .reset-btn {
+      background: transparent;
+      border: none;
+      color: #4A4745;
+      font-size: 0.85rem;
+      font-weight: 300;
+      cursor: pointer;
+      opacity: 0.5;
+      letter-spacing: 0.1em;
+      transition: opacity 0.3s;
+    }
+
+    .reset-btn:hover {
+      opacity: 1;
+    }
+
+    /* AI suggestion */
+    .ai-suggestion {
+      position: absolute;
+      bottom: 4rem;
+      left: 50%;
+      transform: translateX(-50%);
+      backdrop-filter: blur(20px);
+      padding: 1.5rem 3rem;
+      border-radius: 2rem;
+      color: #4A4745;
+      font-size: 1rem;
+      font-weight: 300;
+      letter-spacing: 0.05em;
+      max-width: 80%;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 1s ease;
+      pointer-events: none;
+    }
+
+    .ai-suggestion.show {
+      opacity: 1;
+    }
+
+    /* Animations */
+    @keyframes breathe {
+      0%, 100% { 
+        transform: scale(1);
+        opacity: 0.6;
+      }
+      50% { 
+        transform: scale(1.1);
+        opacity: 0.9;
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% { 
+        transform: scale(1);
+      }
+      50% { 
+        transform: scale(1.03);
+      }
+    }
+
+    @keyframes bloom {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(2);
+        opacity: 0;
+      }
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0) rotate(45deg);
+      }
+      50% {
+        transform: translateY(-20px) rotate(65deg);
+      }
+    }
+
+    button {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <button class="theme-toggle" id="themeToggle">🌸</button>
+    
+    <div id="petals"></div>
+
+    <div class="container">
+      <h1>MORI</h1>
+
+      <div class="orb-container">
+        <div class="orb-glow" id="orbGlow"></div>
+        <div class="orb-progress" id="orbProgress"></div>
+        <div class="orb-core" id="orbCore"></div>
+        <div class="bloom hidden" id="bloom"></div>
+      </div>
+
+      <div class="controls">
+        <div class="time-adjust" id="timeAdjust">
+          <button class="time-btn" id="decreaseTime">−</button>
+          <span class="time-display" id="timeDisplay">10 minutes</span>
+          <button class="time-btn" id="increaseTime">+</button>
+        </div>
+
+        <button class="action-btn" id="actionBtn">BEGIN</button>
+        <button class="reset-btn hidden" id="resetBtn">reset</button>
+      </div>
+    </div>
+
+    <div class="ai-suggestion" id="aiSuggestion"></div>
+  </div>
+
+  <script>
+    // State
+    let theme = 'peach';
+    let focusMinutes = 10;
+    let timeRemaining = focusMinutes * 60;
+    let isActive = false;
+    let isComplete = false;
+    let sessionCount = 0;
+    let timerInterval = null;
+
+    // Theme colors
+    const themes = {
+      peach: {
+        bg: 'linear-gradient(135deg, #FFF5F0 0%, #FFE8DD 50%, #FFD9E8 100%)',
+        accent: '#FFC4D6',
+        orb: '#FFB3C9',
+        border: 'rgba(255, 179, 201, 0.25)',
+        petal: 'rgba(255, 179, 201, 0.2)'
+      },
+      green: {
+        bg: 'linear-gradient(135deg, #F4F7F0 0%, #C8D5BA 50%, #B5C4A1 100%)',
+        accent: '#A0B08A',
+        orb: '#B5C4A1',
+        border: 'rgba(160, 176, 138, 0.25)',
+        petal: 'rgba(160, 176, 138, 0.2)'
+      }
+    };
+
+    // DOM elements
+    const app = document.getElementById('app');
+    const themeToggle = document.getElementById('themeToggle');
+    const petalsContainer = document.getElementById('petals');
+    const orbGlow = document.getElementById('orbGlow');
+    const orbProgress = document.getElementById('orbProgress');
+    const orbCore = document.getElementById('orbCore');
+    const bloom = document.getElementById('bloom');
+    const timeAdjust = document.getElementById('timeAdjust');
+    const decreaseTime = document.getElementById('decreaseTime');
+    const increaseTime = document.getElementById('increaseTime');
+    const timeDisplay = document.getElementById('timeDisplay');
+    const actionBtn = document.getElementById('actionBtn');
+    const resetBtn = document.getElementById('resetBtn');
+    const aiSuggestion = document.getElementById('aiSuggestion');
+
+    // Initialize petals
+    function createPetals() {
+      petalsContainer.innerHTML = '';
+      for (let i = 0; i < 8; i++) {
+        const petal = document.createElement('div');
+        petal.className = theme === 'green' ? 'petal green' : 'petal';
+        petal.style.top = `${Math.random() * 100}%`;
+        petal.style.left = `${Math.random() * 100}%`;
+        petal.style.animation = `float ${10 + i * 2}s ease-in-out infinite`;
+        petal.style.animationDelay = `${i * 0.5}s`;
+        petal.style.background = themes[theme].petal;
+        petalsContainer.appendChild(petal);
+      }
+    }
+
+    // Apply theme
+    function applyTheme() {
+      const t = themes[theme];
+      app.style.background = t.bg;
+      themeToggle.textContent = theme === 'peach' ? '🌸' : '🌿';
+      themeToggle.style.borderColor = t.border;
+      
+      orbGlow.style.background = `radial-gradient(circle, ${t.orb}40 0%, transparent 70%)`;
+      orbCore.style.background = `radial-gradient(circle at 30% 30%, ${t.orb}90, ${t.accent})`;
+      orbCore.style.boxShadow = `0 0 4rem ${t.orb}60`;
+      
+      actionBtn.style.background = `${t.accent}60`;
+      actionBtn.style.boxShadow = `0 0.5rem 2rem ${t.accent}30`;
+      
+      aiSuggestion.style.background = `${t.accent}30`;
+      aiSuggestion.style.boxShadow = `0 1rem 3rem ${t.accent}20`;
+      
+      bloom.style.background = `radial-gradient(circle, ${t.orb}30 0%, transparent 70%)`;
+      
+      createPetals();
+      updateProgress();
+    }
+
+    // Update progress
+    function updateProgress() {
+      const progress = 1 - (timeRemaining / (focusMinutes * 60));
+      const t = themes[theme];
+      orbProgress.style.background = `conic-gradient(${t.orb} ${progress * 360}deg, transparent ${progress * 360}deg)`;
+    }
+
+    // Timer tick
+    function tick() {
+      if (timeRemaining > 0) {
+        timeRemaining--;
+        updateProgress();
+      } else {
+        completeSession();
+      }
+    }
+
+    // Complete session
+    function completeSession() {
+      clearInterval(timerInterval);
+      isActive = false;
+      isComplete = true;
+      sessionCount++;
+      
+      orbGlow.classList.remove('active');
+      orbProgress.classList.remove('active');
+      orbCore.classList.add('complete');
+      
+      bloom.classList.remove('hidden');
+      setTimeout(() => bloom.classList.add('hidden'), 3000);
+      
+      actionBtn.textContent = 'BEGIN AGAIN';
+      playChime();
+      
+      setTimeout(showAISuggestion, 3000);
+    }
+
+    // Play chime
+    function playChime() {
+      const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+      const oscillator = audioContext.createOscillator();
+      const gainNode = audioContext.createGain();
+      
+      oscillator.connect(gainNode);
+      gainNode.connect(audioContext.destination);
+      
+      oscillator.frequency.setValueAtTime(523.25, audioContext.currentTime);
+      oscillator.type = 'sine';
+      
+      gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+      gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 2);
+      
+      oscillator.start(audioContext.currentTime);
+      oscillator.stop(audioContext.currentTime + 2);
+    }
+
+    // Show AI suggestion
+    function showAISuggestion() {
+      if (sessionCount % 3 === 0) {
+        const messages = [
+          "That felt long. Tomorrow can be softer.",
+          "You stayed present. That's enough.",
+          "Notice how you feel. No judgment.",
+          "This rhythm suits you.",
+          "Rest when you need. Return when ready.",
+          "Time passed gently today."
+        ];
+        
+        const message = messages[Math.floor(Math.random() * messages.length)];
+        aiSuggestion.textContent = message;
+        aiSuggestion.classList.add('show');
+        
+        setTimeout(() => aiSuggestion.classList.remove('show'), 5000);
+      }
+    }
+
+    // Toggle timer
+    function toggleTimer() {
+      if (isComplete) {
+        timeRemaining = focusMinutes * 60;
+        isComplete = false;
+        isActive = true;
+        orbCore.classList.remove('complete');
+      } else {
+        isActive = !isActive;
+      }
+      
+      if (isActive) {
+        timerInterval = setInterval(tick, 1000);
+        orbGlow.classList.add('active');
+        orbProgress.classList.add('active');
+        orbCore.classList.add('active');
+        actionBtn.textContent = 'PAUSE';
+        timeAdjust.classList.add('hidden');
+        resetBtn.classList.remove('hidden');
+      } else {
+        clearInterval(timerInterval);
+        orbGlow.classList.remove('active');
+        orbCore.classList.remove('active');
+        actionBtn.textContent = 'BEGIN';
+      }
+    }
+
+    // Reset session
+    function resetSession() {
+      clearInterval(timerInterval);
+      isActive = false;
+      isComplete = false;
+      timeRemaining = focusMinutes * 60;
+      
+      orbGlow.classList.remove('active');
+      orbProgress.classList.remove('active');
+      orbCore.classList.remove('active', 'complete');
+      
+      actionBtn.textContent = 'BEGIN';
+      timeAdjust.classList.remove('hidden');
+      resetBtn.classList.add('hidden');
+      updateProgress();
+    }
+
+    // Adjust time
+    function adjustTime(delta) {
+      if (!isActive) {
+        focusMinutes = Math.max(5, Math.min(25, focusMinutes + delta));
+        timeRemaining = focusMinutes * 60;
+        timeDisplay.textContent = `${focusMinutes} minutes`;
+        
+        decreaseTime.disabled = focusMinutes <= 5;
+        increaseTime.disabled = focusMinutes >= 25;
+        updateProgress();
+      }
+    }
+
+    // Event listeners
+    themeToggle.addEventListener('click', () => {
+      theme = theme === 'peach' ? 'green' : 'peach';
+      applyTheme();
+    });
+
+    actionBtn.addEventListener('click', toggleTimer);
+    resetBtn.addEventListener('click', resetSession);
+    decreaseTime.addEventListener('click', () => adjustTime(-5));
+    increaseTime.addEventListener('click', () => adjustTime(5));
+
+    actionBtn.addEventListener('mouseenter', () => {
+      actionBtn.style.background = `${themes[theme].accent}80`;
+    });
+
+    actionBtn.addEventListener('mouseleave', () => {
+      actionBtn.style.background = `${themes[theme].accent}60`;
+    });
+
+    // Initialize
+    applyTheme();
+  </script>
+</body>
+</html>
