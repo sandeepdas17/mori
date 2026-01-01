@@ -3,7 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#FFF5F0">
+  <meta name="description" content="A quiet space to breathe. ADHD-friendly Pomodoro timer with gentle focus sessions.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Mori">
   <title>Mori – Quiet Focus Space</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3CradialGradient id='g' cx='50%25' cy='50%25'%3E%3Cstop offset='0%25' style='stop-color:%23FFB3C9;stop-opacity:1'/%3E%3Cstop offset='100%25' style='stop-color:%23FFC4D6;stop-opacity:0.8'/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle cx='50' cy='50' r='45' fill='url(%23g)'/%3E%3Ccircle cx='50' cy='50' r='30' fill='%23FFD9E8' opacity='0.6'/%3E%3Cpath d='M 30 25 Q 35 20 40 25 Q 35 30 30 25' fill='%23FFB3C9' opacity='0.5'/%3E%3Cpath d='M 70 30 Q 75 25 80 30 Q 75 35 70 30' fill='%23FFB3C9' opacity='0.5'/%3E%3Cpath d='M 25 60 Q 30 55 35 60 Q 30 65 25 60' fill='%23FFB3C9' opacity='0.5'/%3E%3Cpath d='M 75 65 Q 80 60 85 65 Q 80 70 75 65' fill='%23FFB3C9' opacity='0.5'/%3E%3C/svg%3E">
+  
+  <!-- Apple Touch Icon -->
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Cdefs%3E%3CradialGradient id='bg' cx='50%25' cy='50%25'%3E%3Cstop offset='0%25' style='stop-color:%23FFF5F0'/%3E%3Cstop offset='100%25' style='stop-color:%23FFE8DD'/%3E%3C/radialGradient%3E%3CradialGradient id='orb' cx='50%25' cy='50%25'%3E%3Cstop offset='0%25' style='stop-color:%23FFB3C9;stop-opacity:1'/%3E%3Cstop offset='100%25' style='stop-color:%23FFC4D6;stop-opacity:0.8'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width='180' height='180' fill='url(%23bg)' rx='40'/%3E%3Ccircle cx='90' cy='90' r='50' fill='url(%23orb)'/%3E%3Ccircle cx='90' cy='90' r='35' fill='%23FFD9E8' opacity='0.6'/%3E%3Cpath d='M 50 45 Q 60 35 70 45 Q 60 55 50 45' fill='%23FFB3C9' opacity='0.5'/%3E%3Cpath d='M 120 50 Q 130 40 140 50 Q 130 60 120 50' fill='%23FFB3C9' opacity='0.5'/%3E%3Cpath d='M 45 110 Q 55 100 65 110 Q 55 120 45 110' fill='%23FFB3C9' opacity='0.5'/%3E%3Cpath d='M 125 120 Q 135 110 145 120 Q 135 130 125 120' fill='%23FFB3C9' opacity='0.5'/%3E%3Ctext x='90' y='155' font-family='system-ui' font-size='16' fill='%234A4745' text-anchor='middle' opacity='0.7' letter-spacing='3'%3EMORI%3C/text%3E%3C/svg%3E">
+  
+  <!-- Manifest -->
+  <link rel="manifest" href="data:application/json,%7B%22name%22%3A%22Mori%20-%20Quiet%20Focus%20Space%22%2C%22short_name%22%3A%22Mori%22%2C%22description%22%3A%22A%20gentle%20ADHD-friendly%20Pomodoro%20timer%22%2C%22start_url%22%3A%22.%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%23FFF5F0%22%2C%22theme_color%22%3A%22%23FFF5F0%22%2C%22icons%22%3A%5B%7B%22src%22%3A%22data%3Aimage%2Fsvg%2Bxml%2C%253Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20192%20192%27%253E%253Cdefs%253E%253CradialGradient%20id%3D%27bg%27%20cx%3D%2750%2525%27%20cy%3D%2750%2525%27%253E%253Cstop%20offset%3D%270%2525%27%20style%3D%27stop-color%3A%2523FFF5F0%27%2F%253E%253Cstop%20offset%3D%27100%2525%27%20style%3D%27stop-color%3A%2523FFE8DD%27%2F%253E%253C%2FradialGradient%253E%253CradialGradient%20id%3D%27orb%27%20cx%3D%2750%2525%27%20cy%3D%2750%2525%27%253E%253Cstop%20offset%3D%270%2525%27%20style%3D%27stop-color%3A%2523FFB3C9%3Bstop-opacity%3A1%27%2F%253E%253Cstop%20offset%3D%27100%2525%27%20style%3D%27stop-color%3A%2523FFC4D6%3Bstop-opacity%3A0.8%27%2F%253E%253C%2FradialGradient%253E%253C%2Fdefs%253E%253Crect%20width%3D%27192%27%20height%3D%27192%27%20fill%3D%27url(%2523bg)%27%20rx%3D%2745%27%2F%253E%253Ccircle%20cx%3D%2796%27%20cy%3D%2796%27%20r%3D%2755%27%20fill%3D%27url(%2523orb)%27%2F%253E%253Ccircle%20cx%3D%2796%27%20cy%3D%2796%27%20r%3D%2740%27%20fill%3D%27%2523FFD9E8%27%20opacity%3D%270.6%27%2F%253E%253Cpath%20d%3D%27M%2050%2050%20Q%2065%2035%2080%2050%20Q%2065%2065%2050%2050%27%20fill%3D%27%2523FFB3C9%27%20opacity%3D%270.5%27%2F%253E%253Cpath%20d%3D%27M%20130%2055%20Q%20145%2040%20160%2055%20Q%20145%2070%20130%2055%27%20fill%3D%27%2523FFB3C9%27%20opacity%3D%270.5%27%2F%253E%253Cpath%20d%3D%27M%2045%20120%20Q%2060%20105%2075%20120%20Q%2060%20135%2045%20120%27%20fill%3D%27%2523FFB3C9%27%20opacity%3D%270.5%27%2F%253E%253Cpath%20d%3D%27M%20135%20130%20Q%20150%20115%20165%20130%20Q%20150%20145%20135%20130%27%20fill%3D%27%2523FFB3C9%27%20opacity%3D%270.5%27%2F%253E%253Ctext%20x%3D%2796%27%20y%3D%27165%27%20font-family%3D%27system-ui%27%20font-size%3D%2718%27%20fill%3D%27%25234A4745%27%20text-anchor%3D%27middle%27%20opacity%3D%270.7%27%20letter-spacing%3D%273%27%253EMORI%253C%2Ftext%253E%253C%2Fsvg%253E%22%2C%22sizes%22%3A%22192x192%22%2C%22type%22%3A%22image%2Fsvg%2Bxml%22%2C%22purpose%22%3A%22any%20maskable%22%7D%2C%7B%22src%22%3A%22data%3Aimage%2Fsvg%2Bxml%2C%253Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20512%20512%27%253E%253Cdefs%253E%253CradialGradient%20id%3D%27bg%27%20cx%3D%2750%2525%27%20cy%3D%2750%2525%27%253E%253Cstop%20offset%3D%270%2525%27%20style%3D%27stop-color%3A%2523FFF5F0%27%2F%253E%253Cstop%20offset%3D%27100%2525%27%20style%3D%27stop-color%3A%2523FFE8DD%27%2F%253E%253C%2FradialGradient%253E%253CradialGradient%20id%3D%27orb%27%20cx%3D%2750%2525%27%20cy%3D%2750%2525%27%253E%253Cstop%20offset%3D%270%2525%27%20style%3D%27stop-color%3A%2523FFB3C9%3Bstop-opacity%3A1%27%2F%253E%253Cstop%20offset%3D%27100%2525%27%20style%3D%27stop-color%3A%2523FFC4D6%3Bstop-opacity%3A0.8%27%2F%253E%253C%2FradialGradient%253E%253C%2Fdefs%253E%253Crect%20width%3D%27512%27%20height%3D%27512%27%20fill%3D%27url(%2523bg)%27%20rx%3D%27120%27%2F%253E%253Ccircle%20cx%3D%27256%27%20cy%3D%27256%27%20r%3D%27150%27%20fill%3D%27url(%2523orb)%27%2F%253E%253Ccircle%20cx%3D%27256%27%20cy%3D%27256%27%20r%3D%27110%27%20fill%3D%27%2523FFD9E8%27%20opacity%3D%270.6%27%2F%253E%253Cpath%20d%3D%27M%20130%20130%20Q%20170%2090%20210%20130%20Q%20170%20170%20130%20130%27%20fill%3D%27%2523FFB3C9%27%20opacity%3D%270.5%27%2F%253E%253Cpath%20d%3D%27M%20350%20140%20Q%20390%20100%20430%20140%20Q%20390%20180%20350%20140%27%20fill%3D%27%2523FFB3C9%27%20opacity%3D%270.5%27%2F%253E%253Cpath%20d%3D%27M%20120%20330%20Q%20160%20290%20200%20330%20Q%20160%20370%20120%20330%27%20fill%3D%27%2523FFB3C9%27%20opacity%3D%270.5%27%2F%253E%253Cpath%20d%3D%27M%20360%20350%20Q%20400%20310%20440%20350%20Q%20400%20390%20360%20350%27%20fill%3D%27%2523FFB3C9%27%20opacity%3D%270.5%27%2F%253E%253Ctext%20x%3D%27256%27%20y%3D%27440%27%20font-family%3D%27system-ui%27%20font-size%3D%2748%27%20fill%3D%27%25234A4745%27%20text-anchor%3D%27middle%27%20opacity%3D%270.7%27%20letter-spacing%3D%278%27%253EMORI%253C%2Ftext%253E%253C%2Fsvg%253E%22%2C%22sizes%22%3A%22512x512%22%2C%22type%22%3A%22image%2Fsvg%2Bxml%22%2C%22purpose%22%3A%22any%20maskable%22%7D%5D%7D">
   <style>
     * {
       margin: 0;
@@ -16,6 +30,20 @@
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       overflow: hidden;
+      cursor: none;
+    }
+
+    /* Custom cursor */
+    .cursor {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: rgba(255, 179, 201, 0.3);
+      pointer-events: none;
+      z-index: 10000;
+      transition: transform 0.15s ease;
+      mix-blend-mode: difference;
     }
 
     #app {
@@ -26,6 +54,121 @@
       justify-content: center;
       position: relative;
       transition: background 1s ease;
+    }
+
+    /* Settings panel */
+    .settings-toggle {
+      position: absolute;
+      top: 2rem;
+      left: 2rem;
+      background: transparent;
+      border: 2px solid rgba(255, 179, 201, 0.25);
+      border-radius: 50%;
+      width: 3rem;
+      height: 3rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.6;
+      font-size: 1.2rem;
+      z-index: 100;
+    }
+
+    .settings-toggle:hover {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+
+    .settings-panel {
+      position: absolute;
+      top: 5.5rem;
+      left: 2rem;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      padding: 1.5rem;
+      border-radius: 1rem;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-10px);
+      transition: all 0.3s ease;
+      box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
+      z-index: 99;
+      min-width: 220px;
+    }
+
+    .settings-panel.show {
+      opacity: 1;
+      pointer-events: all;
+      transform: translateY(0);
+    }
+
+    .setting-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      color: #4A4745;
+    }
+
+    .setting-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .toggle-switch {
+      position: relative;
+      width: 3rem;
+      height: 1.5rem;
+      background: #E8E6E1;
+      border-radius: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .toggle-switch.active {
+      background: #B5C4A1;
+    }
+
+    .toggle-knob {
+      position: absolute;
+      top: 0.2rem;
+      left: 0.2rem;
+      width: 1.1rem;
+      height: 1.1rem;
+      background: white;
+      border-radius: 50%;
+      transition: transform 0.3s;
+    }
+
+    .toggle-switch.active .toggle-knob {
+      transform: translateX(1.5rem);
+    }
+
+    /* Ambient sound selector */
+    .sound-selector {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .sound-option {
+      font-size: 1.2rem;
+      background: rgba(181, 196, 161, 0.2);
+      border: none;
+      border-radius: 0.5rem;
+      padding: 0.5rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      opacity: 0.5;
+    }
+
+    .sound-option.active {
+      opacity: 1;
+      background: rgba(181, 196, 161, 0.4);
+      transform: scale(1.1);
     }
 
     /* Theme toggle button */
@@ -50,6 +193,23 @@
 
     .theme-toggle:hover {
       opacity: 1;
+      transform: rotate(15deg);
+    }
+
+    /* Ripple effect */
+    .ripple {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 179, 201, 0.3);
+      pointer-events: none;
+      animation: ripple 0.6s ease-out;
+    }
+
+    @keyframes ripple {
+      to {
+        transform: scale(4);
+        opacity: 0;
+      }
     }
 
     /* Floating petals/leaves */
@@ -62,6 +222,7 @@
       opacity: 0.3;
       transform: rotate(45deg);
       pointer-events: none;
+      transition: transform 0.3s ease;
     }
 
     .petal.green {
@@ -84,6 +245,17 @@
       letter-spacing: 0.3em;
       opacity: 0.7;
       color: #4A4745;
+      transition: opacity 0.3s;
+    }
+
+    /* Session indicator */
+    .session-info {
+      font-size: 0.85rem;
+      color: #4A4745;
+      opacity: 0.5;
+      letter-spacing: 0.1em;
+      font-weight: 300;
+      margin-top: 0.5rem;
     }
 
     /* Orb container */
@@ -108,6 +280,14 @@
 
     .orb-glow.active {
       animation: breathe 4s ease-in-out infinite;
+    }
+
+    .orb-glow.breathing {
+      animation: breathingGuide 12s ease-in-out infinite;
+    }
+
+    .orb-glow.break {
+      animation: gentlePulse 6s ease-in-out infinite;
     }
 
     /* Progress ring */
@@ -137,6 +317,15 @@
       animation: pulse 4s ease-in-out infinite;
     }
 
+    .orb-core.breathing {
+      animation: breathingGuide 12s ease-in-out infinite;
+    }
+
+    .orb-core.break {
+      animation: gentlePulse 6s ease-in-out infinite;
+      opacity: 0.6;
+    }
+
     .orb-core.complete {
       transform: scale(1.3);
       opacity: 1;
@@ -150,6 +339,22 @@
       border-radius: 50%;
       animation: bloom 3s ease-out forwards;
       pointer-events: none;
+    }
+
+    /* Breathing guide text */
+    .breathing-guide {
+      position: absolute;
+      font-size: 0.9rem;
+      color: #4A4745;
+      opacity: 0;
+      letter-spacing: 0.15em;
+      font-weight: 300;
+      transition: opacity 0.5s;
+      pointer-events: none;
+    }
+
+    .breathing-guide.show {
+      opacity: 0.6;
     }
 
     /* Controls */
@@ -174,12 +379,16 @@
       color: #4A4745;
       font-size: 1.5rem;
       cursor: pointer;
-      transition: opacity 0.3s;
+      transition: all 0.3s;
     }
 
     .time-btn:disabled {
       cursor: not-allowed;
       opacity: 0.3;
+    }
+
+    .time-btn:hover:not(:disabled) {
+      transform: scale(1.2);
     }
 
     .time-display {
@@ -203,10 +412,36 @@
       cursor: pointer;
       transition: all 0.3s ease;
       backdrop-filter: blur(10px);
+      position: relative;
+      overflow: hidden;
     }
 
     .action-btn:hover {
       transform: translateY(-2px);
+    }
+
+    .action-btn:active {
+      transform: translateY(0);
+    }
+
+    /* Skip break button */
+    .skip-btn {
+      background: transparent;
+      border: 1px solid rgba(74, 71, 69, 0.2);
+      border-radius: 2rem;
+      padding: 0.7rem 2rem;
+      color: #4A4745;
+      font-size: 0.85rem;
+      font-weight: 300;
+      cursor: pointer;
+      opacity: 0.6;
+      letter-spacing: 0.1em;
+      transition: all 0.3s;
+    }
+
+    .skip-btn:hover {
+      opacity: 1;
+      border-color: rgba(74, 71, 69, 0.4);
     }
 
     /* Reset button */
@@ -224,6 +459,16 @@
 
     .reset-btn:hover {
       opacity: 1;
+    }
+
+    /* Status message */
+    .status-message {
+      font-size: 0.95rem;
+      color: #4A4745;
+      opacity: 0.7;
+      letter-spacing: 0.08em;
+      font-weight: 300;
+      font-style: italic;
     }
 
     /* AI suggestion */
@@ -250,6 +495,44 @@
       opacity: 1;
     }
 
+    /* Today's sessions counter */
+    .session-counter {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.8rem;
+      color: #4A4745;
+      opacity: 0.4;
+      letter-spacing: 0.1em;
+      font-weight: 300;
+    }
+
+    /* Debug panel */
+    .debug-panel {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 1rem;
+      border-radius: 0.5rem;
+      font-size: 0.75rem;
+      font-family: monospace;
+      color: #4A4745;
+      max-width: 200px;
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      display: none;
+    }
+
+    .debug-panel.show {
+      display: block;
+    }
+
+    .debug-item {
+      margin: 0.25rem 0;
+    }
+
     /* Animations */
     @keyframes breathe {
       0%, 100% { 
@@ -268,6 +551,36 @@
       }
       50% { 
         transform: scale(1.03);
+      }
+    }
+
+    @keyframes breathingGuide {
+      0% { 
+        transform: scale(1);
+        opacity: 0.6;
+      }
+      33% { 
+        transform: scale(1.15);
+        opacity: 0.95;
+      }
+      59% { 
+        transform: scale(1.15);
+        opacity: 0.95;
+      }
+      100% { 
+        transform: scale(1);
+        opacity: 0.6;
+      }
+    }
+
+    @keyframes gentlePulse {
+      0%, 100% { 
+        transform: scale(1);
+        opacity: 0.6;
+      }
+      50% { 
+        transform: scale(1.05);
+        opacity: 0.8;
       }
     }
 
@@ -298,18 +611,78 @@
     .hidden {
       display: none;
     }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .orb-container {
+        width: 16rem;
+        height: 16rem;
+      }
+
+      .settings-panel {
+        left: 1rem;
+        right: 1rem;
+        width: auto;
+      }
+
+      body {
+        cursor: auto;
+      }
+
+      .cursor {
+        display: none;
+      }
+    }
   </style>
 </head>
 <body>
+  <div class="cursor" id="cursor"></div>
+
   <div id="app">
+    <!-- Settings -->
+    <button class="settings-toggle" id="settingsToggle">⚙️</button>
+    <div class="settings-panel" id="settingsPanel">
+      <div class="setting-item">
+        <span>Chime</span>
+        <div class="toggle-switch active" id="soundToggle">
+          <div class="toggle-knob"></div>
+        </div>
+      </div>
+      <div class="setting-item">
+        <span>Auto-break</span>
+        <div class="toggle-switch active" id="autoBreakToggle">
+          <div class="toggle-knob"></div>
+        </div>
+      </div>
+      <div class="setting-item">
+        <span>Breathe guide</span>
+        <div class="toggle-switch" id="breatheToggle">
+          <div class="toggle-knob"></div>
+        </div>
+      </div>
+      <div class="setting-item" style="flex-direction: column; align-items: flex-start; gap: 0.5rem;">
+        <span>Ambient</span>
+        <div class="sound-selector">
+          <button class="sound-option active" data-sound="none">🔇</button>
+          <button class="sound-option" data-sound="rain">🌧️</button>
+          <button class="sound-option" data-sound="forest">🌲</button>
+          <button class="sound-option" data-sound="waves">🌊</button>
+        </div>
+      </div>
+    </div>
+
     <button class="theme-toggle" id="themeToggle">🌸</button>
     
     <div id="petals"></div>
 
     <div class="container">
-      <h1>MORI</h1>
+      <div style="text-align: center;">
+        <h1>MORI</h1>
+        <div class="session-info" id="sessionInfo">focus</div>
+      </div>
 
       <div class="orb-container">
+        <div class="breathing-guide" id="breathingGuide">breathe in</div>
         <div class="orb-glow" id="orbGlow"></div>
         <div class="orb-progress" id="orbProgress"></div>
         <div class="orb-core" id="orbCore"></div>
@@ -317,6 +690,8 @@
       </div>
 
       <div class="controls">
+        <div class="status-message hidden" id="statusMessage"></div>
+        
         <div class="time-adjust" id="timeAdjust">
           <button class="time-btn" id="decreaseTime">−</button>
           <span class="time-display" id="timeDisplay">10 minutes</span>
@@ -324,22 +699,45 @@
         </div>
 
         <button class="action-btn" id="actionBtn">BEGIN</button>
+        <button class="skip-btn hidden" id="skipBtn">continue without rest</button>
         <button class="reset-btn hidden" id="resetBtn">reset</button>
       </div>
     </div>
 
     <div class="ai-suggestion" id="aiSuggestion"></div>
+    <div class="session-counter" id="sessionCounter">0 sessions today</div>
+    
+    <!-- Debug Panel (press D to toggle) -->
+    <div class="debug-panel" id="debugPanel">
+      <div class="debug-item">Chime: <span id="debugChime">ON</span></div>
+      <div class="debug-item">Auto-break: <span id="debugAutoBreak">ON</span></div>
+      <div class="debug-item">Breathe: <span id="debugBreathe">OFF</span></div>
+      <div class="debug-item">Ambient: <span id="debugAmbient">none</span></div>
+      <div class="debug-item">Active: <span id="debugActive">NO</span></div>
+      <div class="debug-item">Break: <span id="debugBreak">NO</span></div>
+      <div class="debug-item">Audio: <span id="debugAudio">Ready</span></div>
+    </div>
   </div>
 
   <script>
     // State
     let theme = 'peach';
     let focusMinutes = 10;
+    let breakMinutes = 5;
     let timeRemaining = focusMinutes * 60;
     let isActive = false;
+    let isBreak = false;
     let isComplete = false;
     let sessionCount = 0;
+    let completedToday = 0;
     let timerInterval = null;
+    let breathingInterval = null;
+    let soundEnabled = true;
+    let autoBreak = true;
+    let breatheGuide = false;
+    let ambientSound = 'none';
+    let audioContext = null;
+    let ambientOscillator = null;
 
     // Theme colors
     const themes = {
@@ -347,33 +745,115 @@
         bg: 'linear-gradient(135deg, #FFF5F0 0%, #FFE8DD 50%, #FFD9E8 100%)',
         accent: '#FFC4D6',
         orb: '#FFB3C9',
+        breakOrb: '#FFE8DD',
         border: 'rgba(255, 179, 201, 0.25)',
-        petal: 'rgba(255, 179, 201, 0.2)'
+        petal: 'rgba(255, 179, 201, 0.2)',
+        cursorBg: 'rgba(255, 179, 201, 0.3)'
       },
       green: {
         bg: 'linear-gradient(135deg, #F4F7F0 0%, #C8D5BA 50%, #B5C4A1 100%)',
         accent: '#A0B08A',
         orb: '#B5C4A1',
+        breakOrb: '#C8D5BA',
         border: 'rgba(160, 176, 138, 0.25)',
-        petal: 'rgba(160, 176, 138, 0.2)'
+        petal: 'rgba(160, 176, 138, 0.2)',
+        cursorBg: 'rgba(160, 176, 138, 0.3)'
       }
     };
 
     // DOM elements
     const app = document.getElementById('app');
+    const cursor = document.getElementById('cursor');
+    const settingsToggle = document.getElementById('settingsToggle');
+    const settingsPanel = document.getElementById('settingsPanel');
+    const soundToggle = document.getElementById('soundToggle');
+    const autoBreakToggle = document.getElementById('autoBreakToggle');
+    const breatheToggle = document.getElementById('breatheToggle');
+    const soundOptions = document.querySelectorAll('.sound-option');
     const themeToggle = document.getElementById('themeToggle');
     const petalsContainer = document.getElementById('petals');
+    const sessionInfo = document.getElementById('sessionInfo');
+    const breathingGuide = document.getElementById('breathingGuide');
     const orbGlow = document.getElementById('orbGlow');
     const orbProgress = document.getElementById('orbProgress');
     const orbCore = document.getElementById('orbCore');
     const bloom = document.getElementById('bloom');
+    const statusMessage = document.getElementById('statusMessage');
     const timeAdjust = document.getElementById('timeAdjust');
     const decreaseTime = document.getElementById('decreaseTime');
     const increaseTime = document.getElementById('increaseTime');
     const timeDisplay = document.getElementById('timeDisplay');
     const actionBtn = document.getElementById('actionBtn');
+    const skipBtn = document.getElementById('skipBtn');
     const resetBtn = document.getElementById('resetBtn');
     const aiSuggestion = document.getElementById('aiSuggestion');
+    const sessionCounter = document.getElementById('sessionCounter');
+
+    // Debug panel elements
+    const debugPanel = document.getElementById('debugPanel');
+    const debugChime = document.getElementById('debugChime');
+    const debugAutoBreak = document.getElementById('debugAutoBreak');
+    const debugBreathe = document.getElementById('debugBreathe');
+    const debugAmbient = document.getElementById('debugAmbient');
+    const debugActive = document.getElementById('debugActive');
+    const debugBreak = document.getElementById('debugBreak');
+    const debugAudio = document.getElementById('debugAudio');
+
+    // Update debug panel
+    function updateDebug() {
+      debugChime.textContent = soundEnabled ? 'ON' : 'OFF';
+      debugAutoBreak.textContent = autoBreak ? 'ON' : 'OFF';
+      debugBreathe.textContent = breatheGuide ? 'ON' : 'OFF';
+      debugAmbient.textContent = ambientSound;
+      debugActive.textContent = isActive ? 'YES' : 'NO';
+      debugBreak.textContent = isBreak ? 'YES' : 'NO';
+      debugAudio.textContent = audioContext ? 'Playing' : 'Ready';
+    }
+
+    // Toggle debug panel with 'D' key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'd' || e.key === 'D') {
+        debugPanel.classList.toggle('show');
+      }
+    });
+
+    // Custom cursor
+    let cursorX = 0, cursorY = 0;
+    document.addEventListener('mousemove', (e) => {
+      cursorX = e.clientX;
+      cursorY = e.clientY;
+      cursor.style.left = cursorX + 'px';
+      cursor.style.top = cursorY + 'px';
+
+      // Petals respond to cursor
+      const petals = document.querySelectorAll('.petal');
+      petals.forEach(petal => {
+        const rect = petal.getBoundingClientRect();
+        const petalX = rect.left + rect.width / 2;
+        const petalY = rect.top + rect.height / 2;
+        const distance = Math.sqrt(Math.pow(cursorX - petalX, 2) + Math.pow(cursorY - petalY, 2));
+        
+        if (distance < 100) {
+          const angle = Math.atan2(cursorY - petalY, cursorX - petalX);
+          const push = (100 - distance) / 5;
+          petal.style.transform = `translate(${-Math.cos(angle) * push}px, ${-Math.sin(angle) * push}px) rotate(${45 + push}deg)`;
+        } else {
+          petal.style.transform = '';
+        }
+      });
+    });
+
+    // Ripple effect on click
+    document.addEventListener('click', (e) => {
+      const ripple = document.createElement('div');
+      ripple.className = 'ripple';
+      ripple.style.width = ripple.style.height = '20px';
+      ripple.style.left = e.clientX - 10 + 'px';
+      ripple.style.top = e.clientY - 10 + 'px';
+      ripple.style.background = themes[theme].cursorBg;
+      document.body.appendChild(ripple);
+      setTimeout(() => ripple.remove(), 600);
+    });
 
     // Initialize petals
     function createPetals() {
@@ -396,10 +876,13 @@
       app.style.background = t.bg;
       themeToggle.textContent = theme === 'peach' ? '🌸' : '🌿';
       themeToggle.style.borderColor = t.border;
+      settingsToggle.style.borderColor = t.border;
+      cursor.style.background = t.cursorBg;
       
-      orbGlow.style.background = `radial-gradient(circle, ${t.orb}40 0%, transparent 70%)`;
-      orbCore.style.background = `radial-gradient(circle at 30% 30%, ${t.orb}90, ${t.accent})`;
-      orbCore.style.boxShadow = `0 0 4rem ${t.orb}60`;
+      const currentOrb = isBreak ? t.breakOrb : t.orb;
+      orbGlow.style.background = `radial-gradient(circle, ${currentOrb}40 0%, transparent 70%)`;
+      orbCore.style.background = `radial-gradient(circle at 30% 30%, ${currentOrb}90, ${t.accent})`;
+      orbCore.style.boxShadow = `0 0 4rem ${currentOrb}60`;
       
       actionBtn.style.background = `${t.accent}60`;
       actionBtn.style.boxShadow = `0 0.5rem 2rem ${t.accent}30`;
@@ -407,17 +890,173 @@
       aiSuggestion.style.background = `${t.accent}30`;
       aiSuggestion.style.boxShadow = `0 1rem 3rem ${t.accent}20`;
       
-      bloom.style.background = `radial-gradient(circle, ${t.orb}30 0%, transparent 70%)`;
+      bloom.style.background = `radial-gradient(circle, ${currentOrb}30 0%, transparent 70%)`;
       
       createPetals();
       updateProgress();
     }
 
+    // Breathing guide animation
+    function startBreathingGuide() {
+      if (!breatheGuide || !isActive || isBreak) {
+        console.log('Breathing guide not started:', { breatheGuide, isActive, isBreak });
+        return;
+      }
+      
+      console.log('Starting breathing guide');
+      
+      const cycle = 12000; // 12 seconds total
+      
+      function updateGuide() {
+        const elapsed = Date.now() % cycle;
+        
+        if (elapsed < 4000) {
+          breathingGuide.textContent = 'breathe in';
+        } else if (elapsed < 11000) {
+          breathingGuide.textContent = 'hold';
+        } else {
+          breathingGuide.textContent = 'breathe out';
+        }
+      }
+      
+      breathingGuide.classList.add('show');
+      updateGuide();
+      breathingInterval = setInterval(updateGuide, 100);
+    }
+
+    function stopBreathingGuide() {
+      console.log('Stopping breathing guide');
+      breathingGuide.classList.remove('show');
+      if (breathingInterval) {
+        clearInterval(breathingInterval);
+        breathingInterval = null;
+      }
+    }
+
+    // Ambient sounds
+    function playAmbientSound(type) {
+      stopAmbientSound();
+      
+      if (type === 'none' || !isActive) return;
+      
+      try {
+        audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        
+        if (type === 'rain') {
+          // White noise for rain
+          const bufferSize = 2 * audioContext.sampleRate;
+          const buffer = audioContext.createBuffer(1, bufferSize, audioContext.sampleRate);
+          const output = buffer.getChannelData(0);
+          for (let i = 0; i < bufferSize; i++) {
+            output[i] = Math.random() * 2 - 1;
+          }
+          const whiteNoise = audioContext.createBufferSource();
+          whiteNoise.buffer = buffer;
+          whiteNoise.loop = true;
+          
+          const filter = audioContext.createBiquadFilter();
+          filter.type = 'lowpass';
+          filter.frequency.value = 1000;
+          
+          const gainNode = audioContext.createGain();
+          gainNode.gain.value = 0.15;
+          
+          whiteNoise.connect(filter);
+          filter.connect(gainNode);
+          gainNode.connect(audioContext.destination);
+          
+          whiteNoise.start();
+          ambientOscillator = whiteNoise;
+          
+          console.log('Rain sound playing');
+        } else if (type === 'forest') {
+          // Brown noise for deep forest ambiance
+          const bufferSize = 2 * audioContext.sampleRate;
+          const buffer = audioContext.createBuffer(1, bufferSize, audioContext.sampleRate);
+          const output = buffer.getChannelData(0);
+          
+          let lastOut = 0;
+          for (let i = 0; i < bufferSize; i++) {
+            const white = Math.random() * 2 - 1;
+            output[i] = (lastOut + (0.02 * white)) / 1.02;
+            lastOut = output[i];
+            output[i] *= 3.5;
+          }
+          
+          const brownNoise = audioContext.createBufferSource();
+          brownNoise.buffer = buffer;
+          brownNoise.loop = true;
+          
+          const filter = audioContext.createBiquadFilter();
+          filter.type = 'lowpass';
+          filter.frequency.value = 800;
+          
+          const gainNode = audioContext.createGain();
+          gainNode.gain.value = 0.18;
+          
+          brownNoise.connect(filter);
+          filter.connect(gainNode);
+          gainNode.connect(audioContext.destination);
+          
+          brownNoise.start();
+          ambientOscillator = brownNoise;
+          
+          console.log('Forest sound playing');
+        } else if (type === 'waves') {
+          // Oscillating frequency for waves
+          const osc = audioContext.createOscillator();
+          osc.type = 'sine';
+          osc.frequency.value = 200;
+          
+          const lfo = audioContext.createOscillator();
+          lfo.frequency.value = 0.5;
+          const lfoGain = audioContext.createGain();
+          lfoGain.gain.value = 50;
+          
+          lfo.connect(lfoGain);
+          lfoGain.connect(osc.frequency);
+          
+          const gainNode = audioContext.createGain();
+          gainNode.gain.value = 0.12;
+          
+          osc.connect(gainNode);
+          gainNode.connect(audioContext.destination);
+          
+          lfo.start();
+          osc.start();
+          ambientOscillator = osc;
+          
+          console.log('Waves sound playing');
+        }
+      } catch (e) {
+        console.error('Audio error:', e);
+        alert('Audio not supported in your browser. Please try Chrome, Edge, or Safari.');
+      }
+    }
+
+    function stopAmbientSound() {
+      if (ambientOscillator) {
+        try {
+          ambientOscillator.stop();
+          ambientOscillator.disconnect();
+        } catch (e) {}
+        ambientOscillator = null;
+      }
+      if (audioContext) {
+        try {
+          audioContext.close();
+        } catch (e) {}
+        audioContext = null;
+      }
+    }
+
     // Update progress
     function updateProgress() {
-      const progress = 1 - (timeRemaining / (focusMinutes * 60));
+      const totalTime = isBreak ? breakMinutes * 60 : focusMinutes * 60;
+      const progress = 1 - (timeRemaining / totalTime);
       const t = themes[theme];
-      orbProgress.style.background = `conic-gradient(${t.orb} ${progress * 360}deg, transparent ${progress * 360}deg)`;
+      const currentOrb = isBreak ? t.breakOrb : t.orb;
+      orbProgress.style.background = `conic-gradient(${currentOrb} ${progress * 360}deg, transparent ${progress * 360}deg)`;
     }
 
     // Timer tick
@@ -426,7 +1065,11 @@
         timeRemaining--;
         updateProgress();
       } else {
-        completeSession();
+        if (isBreak) {
+          completeBreak();
+        } else {
+          completeSession();
+        }
       }
     }
 
@@ -435,50 +1078,135 @@
       clearInterval(timerInterval);
       isActive = false;
       isComplete = true;
+      completedToday++;
       sessionCount++;
       
-      orbGlow.classList.remove('active');
+      stopBreathingGuide();
+      stopAmbientSound();
+      
+      orbGlow.classList.remove('active', 'breathing');
       orbProgress.classList.remove('active');
       orbCore.classList.add('complete');
+      orbCore.classList.remove('active', 'breathing');
       
       bloom.classList.remove('hidden');
       setTimeout(() => bloom.classList.add('hidden'), 3000);
       
-      actionBtn.textContent = 'BEGIN AGAIN';
-      playChime();
+      if (soundEnabled) playChime();
+      
+      updateSessionCounter();
+      saveSessionCount();
+      
+      if (autoBreak) {
+        setTimeout(() => {
+          statusMessage.textContent = 'time to wander';
+          statusMessage.classList.remove('hidden');
+          skipBtn.classList.remove('hidden');
+          actionBtn.textContent = 'REST';
+        }, 2000);
+      } else {
+        actionBtn.textContent = 'BEGIN AGAIN';
+      }
       
       setTimeout(showAISuggestion, 3000);
     }
 
+    // Start break
+    function startBreak() {
+      isBreak = true;
+      isComplete = false;
+      timeRemaining = breakMinutes * 60;
+      sessionInfo.textContent = 'rest';
+      
+      statusMessage.classList.add('hidden');
+      skipBtn.classList.add('hidden');
+      
+      applyTheme();
+      
+      orbGlow.classList.add('break');
+      orbCore.classList.add('break');
+      orbCore.classList.remove('complete');
+      
+      isActive = true;
+      timerInterval = setInterval(tick, 1000);
+      
+      if (ambientSound !== 'none') {
+        playAmbientSound(ambientSound);
+      }
+      
+      actionBtn.textContent = 'PAUSE';
+      resetBtn.classList.remove('hidden');
+    }
+
+    // Complete break
+    function completeBreak() {
+      clearInterval(timerInterval);
+      isActive = false;
+      isBreak = false;
+      isComplete = true;
+      
+      stopAmbientSound();
+      
+      orbGlow.classList.remove('break');
+      orbCore.classList.remove('break');
+      orbCore.classList.add('complete');
+      
+      sessionInfo.textContent = 'focus';
+      
+      if (soundEnabled) playChime();
+      
+      actionBtn.textContent = 'BEGIN AGAIN';
+      
+      applyTheme();
+    }
+
+    // Skip break
+    function skipBreak() {
+      statusMessage.classList.add('hidden');
+      skipBtn.classList.add('hidden');
+      resetSession();
+    }
+
     // Play chime
     function playChime() {
-      const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-      const oscillator = audioContext.createOscillator();
-      const gainNode = audioContext.createGain();
+      if (!soundEnabled) {
+        console.log('Chime disabled by user');
+        return;
+      }
       
-      oscillator.connect(gainNode);
-      gainNode.connect(audioContext.destination);
-      
-      oscillator.frequency.setValueAtTime(523.25, audioContext.currentTime);
-      oscillator.type = 'sine';
-      
-      gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
-      gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 2);
-      
-      oscillator.start(audioContext.currentTime);
-      oscillator.stop(audioContext.currentTime + 2);
+      try {
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        
+        osc.frequency.setValueAtTime(523.25, ctx.currentTime);
+        osc.type = 'sine';
+        
+        gain.gain.setValueAtTime(0.3, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 2);
+        
+        osc.start(ctx.currentTime);
+        osc.stop(ctx.currentTime + 2);
+        
+        console.log('Chime played successfully');
+      } catch (e) {
+        console.error('Chime error:', e);
+      }
     }
 
     // Show AI suggestion
     function showAISuggestion() {
-      if (sessionCount % 3 === 0) {
+      if (sessionCount % 3 === 0 && sessionCount > 0) {
         const messages = [
-          "That felt long. Tomorrow can be softer.",
-          "You stayed present. That's enough.",
-          "Notice how you feel. No judgment.",
-          "This rhythm suits you.",
-          "Rest when you need. Return when ready.",
-          "Time passed gently today."
+          "that felt long. tomorrow can be softer.",
+          "you stayed present. that's enough.",
+          "notice how you feel. no judgment.",
+          "this rhythm suits you.",
+          "rest when you need. return when ready.",
+          "time passed gently today."
         ];
         
         const message = messages[Math.floor(Math.random() * messages.length)];
@@ -489,53 +1217,119 @@
       }
     }
 
+    // Update session counter
+    function updateSessionCounter() {
+      const text = completedToday === 1 ? 'session' : 'sessions';
+      sessionCounter.textContent = `${completedToday} ${text} today`;
+    }
+
+    // Save session count
+    function saveSessionCount() {
+      const today = new Date().toDateString();
+      const data = { date: today, count: completedToday };
+      Object.keys(data).forEach(key => {
+        sessionStorage.setItem(`mori_${key}`, data[key]);
+      });
+    }
+
+    // Load session count
+    function loadSessionCount() {
+      const today = new Date().toDateString();
+      const stored = sessionStorage.getItem('mori_date');
+      
+      if (stored === today) {
+        completedToday = parseInt(sessionStorage.getItem('mori_count') || '0');
+      } else {
+        completedToday = 0;
+        saveSessionCount();
+      }
+      updateSessionCounter();
+    }
+
     // Toggle timer
     function toggleTimer() {
       if (isComplete) {
-        timeRemaining = focusMinutes * 60;
-        isComplete = false;
-        isActive = true;
-        orbCore.classList.remove('complete');
-      } else {
-        isActive = !isActive;
+        if (isBreak) {
+          resetSession();
+          toggleTimer();
+        } else if (autoBreak) {
+          startBreak();
+        } else {
+          resetSession();
+          toggleTimer();
+        }
+        return;
       }
+      
+      isActive = !isActive;
       
       if (isActive) {
         timerInterval = setInterval(tick, 1000);
-        orbGlow.classList.add('active');
-        orbProgress.classList.add('active');
-        orbCore.classList.add('active');
+        
+        if (isBreak) {
+          orbGlow.classList.add('break');
+          orbCore.classList.add('break');
+        } else {
+          if (breatheGuide) {
+            orbGlow.classList.add('breathing');
+            orbCore.classList.add('breathing');
+            startBreathingGuide();
+          } else {
+            orbGlow.classList.add('active');
+            orbCore.classList.add('active');
+          }
+          orbProgress.classList.add('active');
+        }
+        
+        if (ambientSound !== 'none') {
+          playAmbientSound(ambientSound);
+        }
+        
         actionBtn.textContent = 'PAUSE';
         timeAdjust.classList.add('hidden');
         resetBtn.classList.remove('hidden');
       } else {
         clearInterval(timerInterval);
-        orbGlow.classList.remove('active');
-        orbCore.classList.remove('active');
-        actionBtn.textContent = 'BEGIN';
+        stopBreathingGuide();
+        stopAmbientSound();
+        
+        orbGlow.classList.remove('active', 'break', 'breathing');
+        orbCore.classList.remove('active', 'break', 'breathing');
+        
+        actionBtn.textContent = isBreak ? 'REST' : 'BEGIN';
       }
     }
 
     // Reset session
     function resetSession() {
       clearInterval(timerInterval);
+      stopBreathingGuide();
+      stopAmbientSound();
+      
       isActive = false;
       isComplete = false;
+      isBreak = false;
       timeRemaining = focusMinutes * 60;
       
-      orbGlow.classList.remove('active');
+      sessionInfo.textContent = 'focus';
+      statusMessage.classList.add('hidden');
+      skipBtn.classList.add('hidden');
+      
+      orbGlow.classList.remove('active', 'break', 'breathing');
       orbProgress.classList.remove('active');
-      orbCore.classList.remove('active', 'complete');
+      orbCore.classList.remove('active', 'complete', 'break', 'breathing');
       
       actionBtn.textContent = 'BEGIN';
       timeAdjust.classList.remove('hidden');
       resetBtn.classList.add('hidden');
+      
+      applyTheme();
       updateProgress();
     }
 
     // Adjust time
     function adjustTime(delta) {
-      if (!isActive) {
+      if (!isActive && !isBreak) {
         focusMinutes = Math.max(5, Math.min(25, focusMinutes + delta));
         timeRemaining = focusMinutes * 60;
         timeDisplay.textContent = `${focusMinutes} minutes`;
@@ -547,12 +1341,76 @@
     }
 
     // Event listeners
+    settingsToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      settingsPanel.classList.toggle('show');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!settingsPanel.contains(e.target) && e.target !== settingsToggle) {
+        settingsPanel.classList.remove('show');
+      }
+    });
+
+    soundToggle.addEventListener('click', () => {
+      soundEnabled = !soundEnabled;
+      soundToggle.classList.toggle('active');
+      console.log('Chime toggled:', soundEnabled);
+      updateDebug();
+    });
+
+    autoBreakToggle.addEventListener('click', () => {
+      autoBreak = !autoBreak;
+      autoBreakToggle.classList.toggle('active');
+      console.log('Auto-break toggled:', autoBreak);
+      updateDebug();
+    });
+
+    breatheToggle.addEventListener('click', () => {
+      breatheGuide = !breatheGuide;
+      breatheToggle.classList.toggle('active');
+      console.log('Breathe guide toggled:', breatheGuide);
+      updateDebug();
+      
+      if (!breatheGuide && isActive && !isBreak) {
+        stopBreathingGuide();
+        orbGlow.classList.remove('breathing');
+        orbCore.classList.remove('breathing');
+        orbGlow.classList.add('active');
+        orbCore.classList.add('active');
+      } else if (breatheGuide && isActive && !isBreak) {
+        orbGlow.classList.remove('active');
+        orbCore.classList.remove('active');
+        orbGlow.classList.add('breathing');
+        orbCore.classList.add('breathing');
+        startBreathingGuide();
+      }
+    });
+
+    soundOptions.forEach(option => {
+      option.addEventListener('click', () => {
+        soundOptions.forEach(opt => opt.classList.remove('active'));
+        option.classList.add('active');
+        ambientSound = option.dataset.sound;
+        console.log('Ambient sound changed to:', ambientSound);
+        updateDebug();
+        
+        if (isActive) {
+          stopAmbientSound();
+          if (ambientSound !== 'none') {
+            setTimeout(() => playAmbientSound(ambientSound), 100);
+          }
+        }
+      });
+    });
+
     themeToggle.addEventListener('click', () => {
       theme = theme === 'peach' ? 'green' : 'peach';
       applyTheme();
     });
 
     actionBtn.addEventListener('click', toggleTimer);
+    skipBtn.addEventListener('click', skipBreak);
     resetBtn.addEventListener('click', resetSession);
     decreaseTime.addEventListener('click', () => adjustTime(-5));
     increaseTime.addEventListener('click', () => adjustTime(5));
@@ -567,6 +1425,11 @@
 
     // Initialize
     applyTheme();
+    loadSessionCount();
+    updateDebug();
+    
+    console.log('Mori initialized');
+    console.log('Press D to toggle debug panel');
   </script>
 </body>
 </html>
